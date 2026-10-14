@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Air India — Campaign Plan</title>
+<style>
+:root{
+  --ink:#16202c; --muted:#6b7a8d; --line:#dde4ec; --bg:#f6f8fb; --card:#fff;
+  --p2:#2e75b6; --p2bg:#dceaf7; --p1bg:#eef1f5; --p1ink:#8696a8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:36px 28px 64px}
+h1{font-size:25px;letter-spacing:-.02em;margin:0 0 6px}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  color:#6b7a8d;background:#eef1f5;border:1px solid var(--line);border-radius:4px;
+  padding:2px 7px;vertical-align:3px;margin-right:10px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 4px}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
+  margin:30px 0 12px;font-weight:650}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:18px 20px;margin-bottom:14px}
+.scroll{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
+table.grid{border-collapse:collapse;width:100%;font-size:12.5px;table-layout:fixed}
+col.cmk{width:94px} col.cw{width:62px} col.cd{width:22px}
+col.cp2{width:52px} col.ccost{width:88px}
+.grid th,.grid td{padding:0;text-align:center;white-space:nowrap;overflow:hidden}
+.grid thead th{font-weight:600;color:var(--muted);font-size:11px;padding:7px 2px;
+  border-bottom:1px solid var(--line);background:#fbfcfd}
+.wkh .dt,.num .dt{font-weight:450;color:#9aa8b8;font-size:10px}
+.wkh.dk{color:#b3bfcc;font-size:10px}
+.mk{text-align:left;font-weight:650;padding:0 12px}
+.grid thead .mk{background:#fbfcfd}
+.grid tbody tr{border-bottom:1px solid #eef2f6}
+td.cell{height:34px;font-size:10.5px;font-weight:650;letter-spacing:.01em}
+td.cell.p2{background:var(--p2bg);color:var(--p2)}
+td.cell.p1{background:var(--p1bg);color:var(--p1ink);font-weight:500}
+td.cell.off{background:repeating-linear-gradient(135deg,#fafbfc,#fafbfc 4px,#f1f4f7 4px,#f1f4f7 8px)}
+td.num{padding:0 9px;text-align:right;font-variant-numeric:tabular-nums}
+td.num.wk{padding:0 2px;font-size:9.5px;color:#4a5a6d}
+td.cost{font-weight:650}
+tr.tot{border-top:1.5px solid var(--line);background:#fbfcfd;font-weight:650}
+tr.tot td{height:36px}
+.band{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;
+  padding:5px 3px;background:#fbfcfd;border-bottom:1px solid var(--line)}
+.band.live{background:#eaf3fb;color:#1b4f7e;font-weight:650;letter-spacing:.02em}
+.band.live sup{color:#2e75b6;font-size:11px}
+.band.sale{background:#fff;color:#8a7034;font-size:10px;letter-spacing:.02em;text-transform:none}
+table.money{font-size:14px;width:100%}
+table.money td{text-align:left;padding:9px 12px;border-bottom:1px solid #eef2f6}
+table.money td:last-child{text-align:right;font-variant-numeric:tabular-nums;
+  font-weight:600;white-space:nowrap}
+table.money tr:last-child td{border-bottom:0}
+table.money tr.rule td{border-top:1.5px solid var(--line);font-weight:680}
+table.money tr.sub td{color:var(--muted);font-size:13px}
+.hint{color:var(--muted);font-size:12.5px;margin:5px 0 0}
+.dep{background:#f7fafd;border:1px solid var(--line);border-left:3px solid var(--p2);
+  border-radius:8px;padding:12px 15px;font-size:13px;margin:12px 0 0;color:#2f3f52}
+.dep b{color:var(--p2)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:10px 0 0;
+  font-size:12px;color:var(--muted)}
+.sw{display:inline-block;width:22px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.sw.off{background:repeating-linear-gradient(135deg,#fafbfc,#fafbfc 4px,#f1f4f7 4px,#f1f4f7 8px)}
+.cost-wrap{max-width:620px}
+footer{color:var(--muted);font-size:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+@media print{
+  body{background:#fff}.wrap{padding:0;max-width:none}
+  .scroll{overflow:visible;border:1px solid var(--line)}
+  .card{break-inside:avoid}
+}
+</style>
+<style>
+  /* ── Password Gate ── */
+  #pw-gate {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(15, 22, 35, 0.92);
+    backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #pw-gate.hidden { display: none; }
+  #pw-box {
+    background: #fff; border-radius: 16px;
+    padding: 40px 48px; width: 360px; max-width: 90vw;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  #pw-box .pw-logo {
+    width: 48px; height: 48px; margin: 0 auto 20px;
+    background: #EEF3FF; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #pw-box .pw-logo svg { width: 24px; height: 24px; color: #1A54F0; }
+  #pw-box h2 { font-size: 18px; font-weight: 700; color: #0F1623; margin-bottom: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  #pw-box p { font-size: 13px; color: #5E6C84; margin-bottom: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  #pw-input {
+    width: 100%; padding: 10px 14px; font-size: 15px;
+    border: 1.5px solid #DDE2EC; border-radius: 8px;
+    outline: none; font-family: inherit; letter-spacing: 0.05em;
+    transition: border-color 0.15s;
+  }
+  #pw-input:focus { border-color: #1A54F0; }
+  #pw-input.error { border-color: #C9302C; animation: shake 0.3s ease; }
+  #pw-btn {
+    width: 100%; margin-top: 12px; padding: 11px;
+    background: #1A54F0; color: #fff; border: none;
+    border-radius: 8px; font-size: 15px; font-weight: 600;
+    cursor: pointer; font-family: inherit; transition: background 0.15s;
+  }
+  #pw-btn:hover { background: #1244CC; }
+  #pw-err { font-size: 12px; color: #C9302C; margin-top: 8px; min-height: 16px; font-family: inherit; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+</style>
+</head>
+<body>
+
+<div id="pw-gate">
+  <div id="pw-box">
+    <div class="pw-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+    </div>
+    <h2>Protected Report</h2>
+    <p>Enter the access password to view this report.</p>
+    <input id="pw-input" type="password" placeholder="Password" autocomplete="current-password" />
+    <button id="pw-btn">Unlock</button>
+    <div id="pw-err"></div>
+  </div>
+</div>
+<div class="wrap">
+
+<h1><span class="badge">SHARED</span>Air India — Campaign Plan</h1>
+<p class="sub">3 rounds × 4 weeks × 5 markets &nbsp;·&nbsp; 16 Nov – 21 Mar
+&nbsp;·&nbsp; rates per Trip.com Media Kit 2026</p>
+
+<h2>The plan · week by week</h2>
+<div class="scroll">
+<table class="grid">
+  <colgroup><col class="cmk"><col class="cw"><col class="cw"><col class="cw"><col class="cw"><col class="cd"><col class="cd"><col class="cd"><col class="cw"><col class="cw"><col class="cw"><col class="cw"><col class="cd"><col class="cd"><col class="cd"><col class="cw"><col class="cw"><col class="cw"><col class="cw"><col class="cd"><col class="cp2"><col class="ccost"></colgroup>
+  <thead>
+    <tr><th class="mk">Market</th><th class="wkh">1<div class="dt">16 Nov</div></th><th class="wkh">2<div class="dt">23 Nov</div></th><th class="wkh">3<div class="dt">30 Nov</div></th><th class="wkh">4<div class="dt">7 Dec</div></th><th class="wkh dk">5</th><th class="wkh dk">6</th><th class="wkh dk">7</th><th class="wkh">8<div class="dt">4 Jan</div></th><th class="wkh">9<div class="dt">11 Jan</div></th><th class="wkh">10<div class="dt">18 Jan</div></th><th class="wkh">11<div class="dt">25 Jan</div></th><th class="wkh dk">12</th><th class="wkh dk">13</th><th class="wkh dk">14</th><th class="wkh">15<div class="dt">22 Feb</div></th><th class="wkh">16<div class="dt">1 Mar</div></th><th class="wkh">17<div class="dt">8 Mar</div></th><th class="wkh">18<div class="dt">15 Mar</div></th><th class="wkh dk">19</th>
+      <th class="num">Pkg 2<div class="dt">weeks</div></th><th class="num">Media<div class="dt">cost</div></th></tr>
+    <tr><th class="mk band">Round</th><th class="band live" colspan="4">R1 · 16 Nov – 13 Dec <sup>†</sup></th><th class="band" colspan="3">dark</th><th class="band live" colspan="4">R2 · 4 Jan – 31 Jan</th><th class="band" colspan="3">dark</th><th class="band live" colspan="4">R3 · 22 Feb – 21 Mar</th><th class="band">—</th>
+      <th class="band"></th><th class="band"></th></tr>
+    <tr><th class="mk band sale">Sale on air</th><th class="band sale" colspan="4">UK Christmas &amp; New Year Sale</th><th class="band sale" colspan="3">no sale</th><th class="band sale" colspan="12">India Early Bird Sale</th>
+      <th class="band sale"></th><th class="band sale"></th></tr>
+  </thead>
+  <tbody><tr><td class="mk">GB</td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="num">9</td><td class="num cost">$139,500</td></tr><tr><td class="mk">AU</td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="num">6</td><td class="num cost">$99,000</td></tr><tr><td class="mk">XX</td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p2">Pkg 2</td><td class="cell p2">Pkg 2</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="num">6</td><td class="num cost">$99,000</td></tr><tr><td class="mk">DE</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="num">0</td><td class="num cost">$18,000</td></tr><tr><td class="mk">FR</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="cell off"></td><td class="cell off"></td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell p1">Pkg 1</td><td class="cell off"></td><td class="num">0</td><td class="num cost">$18,000</td></tr><tr class="tot"><td class="mk">Weekly cost</td><td class="num wk">$48,000</td><td class="num wk">$48,000</td><td class="num wk">$21,000</td><td class="num wk">$7,500</td><td class="num wk"></td><td class="num wk"></td><td class="num wk"></td><td class="num wk">$48,000</td><td class="num wk">$48,000</td><td class="num wk">$21,000</td><td class="num wk">$7,500</td><td class="num wk"></td><td class="num wk"></td><td class="num wk"></td><td class="num wk">$48,000</td><td class="num wk">$48,000</td><td class="num wk">$21,000</td><td class="num wk">$7,500</td><td class="num wk"></td><td class="num">21</td><td class="num cost">$373,500</td></tr></tbody>
+</table>
+</div>
+<div class="legend">
+  <span><span class="sw" style="background:var(--p2bg);border:1px solid #bcd6ec"></span>Package 2 — Product Homepage + Flight Results Page</span>
+  <span><span class="sw" style="background:var(--p1bg);border:1px solid #dde4ec"></span>Package 1 — Evergreen + Flight Results Page</span>
+  <span><span class="sw off" style="border:1px solid #e6eaef"></span>Dark — no campaign</span>
+</div>
+
+<div class="dep">
+  <b>† R1 start date depends on confirmation from Air India.</b> The 16 Nov launch assumes
+  sign-off in time for the campaign plan. If it lands late, R1 will be postponed
+  accordingly and R2 and R3 could potentially move with it.
+</div>
+
+<h2>Cost</h2>
+<div class="cost-wrap">
+<div class="card">
+  <table class="money">
+    <tr><td>Media — 21 × Package 2 weeks</td><td>$315,000</td></tr>
+    <tr><td>Media — 39 × Package 1 weeks</td><td>$58,500</td></tr>
+    <tr class="rule"><td>Media subtotal</td><td>$373,500</td></tr>
+    <tr class="sub"><td>Landing page — Custom, 5 markets ($9,000 × 1.4)</td><td>$12,600</td></tr>
+    <tr class="rule"><td>Grand Total</td><td>$386,100</td></tr>
+  </table>
+  <p class="hint">Tier 2 weekly: Package 1 $1,500 · Package 2 $15,000.
+  Landing page is one-time, +10% of base per extra adapted market.</p>
+</div>
+</div>
+
+<footer>
+  All rates, impression ranges and landing page pricing trace to the Trip.com Media Kit
+  2026, Tier 2. Market tiers: GB, DE, AU, FR, XX all Tier 2 (Growth, 2M–9M monthly UV).
+</footer>
+
+</div>
+</body>
+<script>
+  (function() {
+    const PASS = 'airindia2026';
+    const gate = document.getElementById('pw-gate');
+    const input = document.getElementById('pw-input');
+    const btn = document.getElementById('pw-btn');
+    const err = document.getElementById('pw-err');
+
+    function unlock() {
+      gate.classList.add('hidden');
+      sessionStorage.setItem('report_unlocked', '1');
+    }
+
+    if (sessionStorage.getItem('report_unlocked') === '1') {
+      unlock();
+    }
+
+    function attempt() {
+      if (input.value === PASS) {
+        unlock();
+      } else {
+        err.textContent = 'Incorrect password. Please try again.';
+        input.classList.add('error');
+        input.value = '';
+        setTimeout(() => input.classList.remove('error'), 400);
+        input.focus();
+      }
+    }
+
+    btn.addEventListener('click', attempt);
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') attempt();
+      if (input.classList.contains('error')) {
+        input.classList.remove('error');
+        err.textContent = '';
+      }
+    });
+  })();
+</script>
+</html>
